@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+	Copy this into the text field below and set the code type to HTML. Our designers have created this beautiful comp, and we need you to build this with HTML and CSS (and maybe javascript).
+	<See attached jpg for comp>
+	<See attached doc for copy>
+	
+	Look & Feel:
+	The pixel heights don't have to be exact, so you can just make them up. Our designers did not come up with the mobile 
+	view of this page, but we still need it to be responsive. When the page is under 600 pixels wide, please have the 
+	page reflow into a single column with the side bar on top of the main content.
+	
+	Functionality:
+	We also want the side bar links to cause the content in the main area to change without refreshing the page. The first
+	link will be on by default, but if the user selects the second link, the first paragraph will become hidden, and the 
+	second paragraph will become visible. If the user selects the fourth, the current paragraph will hide and the fourth 
+	paragraph will be visible, etc.
+	
+	Feel free to use any jquery, plain javascript, or bootstrap (css or js). 
+-->
+    <head>
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- JQuery -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		
+		<!-- This is just for the coloring of the sections -->
+		<style>
+		 	body {
+		 		font-family: "Times New Roman", Georgia, Serif;
+		 	}
+
+			#header {
+				/* Dark Teal */
+				background: #21505C; 
+				text-align: left;
+				padding: 15px 50px;
+				color: white;
+			}
+			
+			#side {
+				/* Seafoam */
+				background: #4DC1B8;
+				line-height: 30px;
+				height: 450px;
+				width: 30%;
+				padding:5%;
+				float: left;
+				color: white;
+				/*padding: 5px;*/
+			}
+
+			a {
+				text-decoration: underline;
+				color: white;
+			}
+			
+			#main {
+				/* You guess it: white power! */
+				background: white;
+				width: 70%;
+				float: left;
+				padding: 15px;
+				padding-left: 35px
+			}
+			
+			#footer {
+				/* Blue */
+				padding: 15px;
+				height: 100px;
+				background: #4C8AC0;
+				clear: left;
+
+			}
+
+			@media (max-width: 600px) {
+				#side {
+					width: 100%;
+					height: 225px;
+				}
+
+				#main {
+					width: 100%;
+				}
+			}
+
+		</style>
+		<!-- Your custom Javascript (if any) can go here -->
+		<script>
+		//NOTE: I didn't do it via hide() and show() method. If I need to, assuming we need the data to be on the DOM for SEO purposes, let me know and I can refactor. 
+			var data = { 
+				basic : 'Our courses are engaging video summaries of textbook material. They are a fast, effective way to study for any subject and be better prepared for your next test. The lessons are short and concise, with lots of examples to help you master the material quickly.',
+				premium : 'We\'ve made earning real college credit simple — with no red tape to transfer credit units to over 2,000 colleges and universities. Our courses help unlock your potential and bring affordable college credit to millions of students.',
+				collegeAccel : 'Take as many courses as you like for one low monthly fee instead of paying expensive tuition and buying textbooks. Credits are transferable to over 2900 colleges & universities.',
+				teacher : 'The Teacher Edition allows you to send all your students a unique link that grants them access to the video and its quiz. After students read or watch the assignment and take the quiz, you will automatically receive their quiz scores so you can see what they\'ve learned and what they are struggling with.'
+			};
+
+			$(document).ready(function(){
+
+				//main content is initialize with basic
+				$('#content').html(data.basic);
+
+				//content links
+				$('#basic').click(function(){ 
+					$('#content').html(data.basic);
+				});
+				$('#premium').click(function(){ 
+					$('#content').html(data.premium);
+				});
+				$('#collegeAccel').click(function(){ 
+					$('#content').html(data.collegeAccel);
+				});
+				$('#teacher').click(function(){ 
+					$('#content').html(data.teacher);
+				});
+
+			});
+		</script>
+    </head>
+    <body>
+        <div id="header"><h1>Some Cool Landing Page</h1></div>
+		<div id="side">
+			<b><h4>Select a Product</h4></b>
+			<ul>
+				<li><a href="#" id="basic">Basic</a></li>
+				<li><a href="#" id="premium">Premium</a></li>
+				<li><a href="#" id="collegeAccel">College Accelerator</a></li>
+				<li><a href="#" id="teacher">Teacher</a></li>
+			</ul>
+
+		</div>
+		<div id="main">
+			<h2>Product Description</h2>
+			<div id="content"></div>
+		</div>
+		<div id="footer">
+			<ul style="list-style-type:none">
+				<li><a href="http://study.com/pages/Employment.html">Careers</a></li>
+				<li><a href="http://study.com/pages/About_Us.html">About Us</a></li>
+				<li><a href="http://study.com">Home</a></li>
+			</ul>
+		</div>
+    </body>
+</html>
